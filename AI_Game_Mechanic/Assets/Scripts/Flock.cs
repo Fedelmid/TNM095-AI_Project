@@ -51,6 +51,7 @@ public class Flock : MonoBehaviour
                 transform // set parent to the empty game object Flock
                 );
             newAgent.name = "agent " + i;
+            newAgent.Initialize(this);
             agents.Add(newAgent); // add agent to list to keep track of
         }
     }

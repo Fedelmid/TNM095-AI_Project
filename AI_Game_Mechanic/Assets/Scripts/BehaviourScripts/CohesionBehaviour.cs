@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName ="Flock/Behaviour/Cohesion")]
-public class CohesionBehaviour : FlockBehaviour
+public class CohesionBehaviour : FilteredFlockBehaviour
 {
 
     // find middle point between all neighbours and try to move there
@@ -16,11 +16,12 @@ public class CohesionBehaviour : FlockBehaviour
 
         // add all points together and average
         Vector3 cohesionMove = Vector3.zero;
-        foreach (Transform item in context)
+        List<Transform> filteredContext = (filter == null) ? context : filter.Filter(agent, context);
+        foreach (Transform item in filteredContext)
         {
             cohesionMove += item.position;
         }
-        cohesionMove /= context.Count;
+        cohesionMove /= filteredContext.Count;
 
         // create offset from agent position
         cohesionMove -= agent.transform.position;

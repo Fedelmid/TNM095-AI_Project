@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Flock/Behaviour/Steered Cohesion")]
-public class SteeredCohesionBehaviour : FlockBehaviour // smoother type of cohesion, no flickering
+public class SteeredCohesionBehaviour : FilteredFlockBehaviour // smoother type of cohesion, no flickering
 {
 
     Vector3 currentVelocity;
@@ -18,13 +18,16 @@ public class SteeredCohesionBehaviour : FlockBehaviour // smoother type of cohes
         if (context.Count == 0)
             return Vector3.zero;
 
+        currentVelocity = Vector3.zero; // need to set this in order to avoid NaN error in smoothDamp
+
         // add all points together and average
         Vector3 cohesionMove = Vector3.zero;
-        foreach (Transform item in context)
+        List<Transform> filteredContext = (filter == null) ? context : filter.Filter(agent, context);
+        foreach (Transform item in filteredContext)
         {
             cohesionMove += item.position;
         }
-        cohesionMove /= context.Count;
+        cohesionMove /= filteredContext.Count;
 
         // create offset from agent position
         cohesionMove -= agent.transform.position;
