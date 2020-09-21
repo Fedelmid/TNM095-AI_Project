@@ -46,7 +46,7 @@ public class Flock : MonoBehaviour
         {
             FlockAgent newAgent = Instantiate(
                 agentPrefab, // type of agent
-                Random.insideUnitSphere * startingCount * AgentDensity, // place it somewhere inside a unit sphere
+                Random.insideUnitSphere /8f * startingCount * AgentDensity, // place it somewhere inside a unit sphere
                 Quaternion.Euler(Vector3.left * Random.Range(0f, 360f)), // random rotation
                 transform // set parent to the empty game object Flock
                 );
