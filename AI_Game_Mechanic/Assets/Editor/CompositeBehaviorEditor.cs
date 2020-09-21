@@ -71,7 +71,7 @@ public class CompositeBehaviorEditor : Editor // more convenient editor for floc
 
         adding = (FlockBehaviour)EditorGUILayout.ObjectField(adding, typeof(FlockBehaviour), false);
 
-        if (adding != null)
+        if (adding != null && current.behaviours != null)
         {
             // add this item to the array
             var oldBehaviours = current.behaviours;
