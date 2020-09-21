@@ -14,7 +14,7 @@ public class AvoidanceBehaviour : FlockBehaviour
 
         // add all points together and average
         Vector3 avoidanceMove = Vector3.zero;
-        int nAvoid = 0;
+        int nAvoid = 0; // number of avoidances
         foreach (Transform item in context)
         {
             if (Vector3.SqrMagnitude(item.position - agent.transform.position) < flock.SquareAvoidanceRadius)
