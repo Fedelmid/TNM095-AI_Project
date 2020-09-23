@@ -23,6 +23,22 @@ public class CompositeBehaviorEditor : Editor // more convenient editor for floc
         return current;
     }
 
+    // kinda ugly solution but oh well i dont thing this works tho
+    private float[] Remove(int index, float[] old)
+    {
+        // Remove this behaviour
+        var current = new float[old.Length - 1];
+        for (int y = 0, x = 0; y < old.Length; y++)
+        {
+            if (y != index)
+            {
+                current[x] = old[y];
+                x++;
+            }
+        }
+        return current;
+    }
+
     public override void OnInspectorGUI()
     {
         // Setup
@@ -48,8 +64,9 @@ public class CompositeBehaviorEditor : Editor // more convenient editor for floc
 
                 if (GUILayout.Button("Remove") || current.behaviours[i] == null)
                 {
-                    // Remove this behaviour
+                    // Remove this behaviour and its weight
                     current.behaviours = Remove(i, current.behaviours);
+                    current.weights = Remove(i, current.weights); // i mean i could just rewrite the weights to one less but it would be ugly lol
                     break;
                 }
 
@@ -71,7 +88,7 @@ public class CompositeBehaviorEditor : Editor // more convenient editor for floc
 
         adding = (FlockBehaviour)EditorGUILayout.ObjectField(adding, typeof(FlockBehaviour), false);
 
-        if (adding != null && current.behaviours != null)
+        if (adding != null && (current.behaviours != null || current.behaviours.Length == 0))
         {
             // add this item to the array
             var oldBehaviours = current.behaviours;
