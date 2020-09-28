@@ -27,12 +27,5 @@ public class StayInBoxBehaviour : FlockBehaviour
 
         return centerOffset * t * t;
     }
-
-    void Start()
-    {
-        GameObject obj = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        obj.transform.localScale = boxLimit;
-        obj.transform.position = center;
-    }
     
 }
