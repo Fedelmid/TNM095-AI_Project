@@ -16,7 +16,7 @@ public class SteeredCohesionBehaviour : FilteredFlockBehaviour // smoother type 
     {
         // if no neighbours, return no adjustment
         if (context.Count == 0)
-            return Vector3.zero;
+            return Vector3.forward;
 
         currentVelocity = Vector3.zero; // need to set this in order to avoid NaN error in smoothDamp
 

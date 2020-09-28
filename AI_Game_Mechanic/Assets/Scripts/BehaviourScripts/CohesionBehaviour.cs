@@ -12,7 +12,7 @@ public class CohesionBehaviour : FilteredFlockBehaviour
     {
         // if no neighbours, return no adjustment
         if (context.Count == 0)
-            return Vector3.zero;
+            return Vector3.forward;
 
         // add all points together and average
         Vector3 cohesionMove = Vector3.zero;

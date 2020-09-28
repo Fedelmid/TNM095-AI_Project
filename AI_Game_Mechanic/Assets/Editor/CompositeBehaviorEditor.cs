@@ -66,7 +66,17 @@ public class CompositeBehaviorEditor : Editor // more convenient editor for floc
                 {
                     // Remove this behaviour and its weight
                     current.behaviours = Remove(i, current.behaviours);
-                    current.weights = Remove(i, current.weights); // i mean i could just rewrite the weights to one less but it would be ugly lol
+                    // Remove this behaviour
+                    var newWeights = new float[current.weights.Length - 1];
+                    for (int y = 0, x = 0; y < current.weights.Length; y++)
+                    {
+                        if (y != i)
+                        {
+                            newWeights[x] = current.weights[y];
+                            x++;
+                        }
+                    }
+                    current.weights = newWeights;
                     break;
                 }
 
