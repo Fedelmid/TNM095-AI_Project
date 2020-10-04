@@ -82,7 +82,7 @@ public class CompositeBehaviorEditor : Editor // more convenient editor for floc
 
                 current.behaviours[i] = (FlockBehaviour)EditorGUILayout.ObjectField(current.behaviours[i], typeof(FlockBehaviour), false);
                 EditorGUILayout.Space(30);
-                current.weights[i] = EditorGUILayout.Slider(current.weights[i], 0, 1);
+                current.weights[i] = EditorGUILayout.Slider(current.weights[i], 0, 5);
 
                 EditorGUILayout.EndHorizontal();
             }
