@@ -26,7 +26,11 @@ public class FlockAgent : MonoBehaviour
     // Move the agent according to a certain velocity
     public void Move(Vector3 velocity)
     {
-        transform.forward = velocity;
-        transform.position += velocity * Time.deltaTime;
+        if(!(float.IsNaN(velocity.x) || float.IsNaN(velocity.y) || float.IsNaN(velocity.z)))
+        {
+            transform.forward = velocity;
+            transform.position += velocity * Time.deltaTime;
+        }
+        
     }
 }
