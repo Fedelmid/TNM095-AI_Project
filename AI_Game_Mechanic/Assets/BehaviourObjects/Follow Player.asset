@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b238cffe8e507fc4ab4ee47c2acc8ce9, type: 3}
-  m_Name: Center Avoid Behaviour
+  m_Script: {fileID: 11500000, guid: dd19cf4805b92fc4fa88ad1f1d415059, type: 3}
+  m_Name: Follow Player
   m_EditorClassIdentifier: 
-  behaviours: []
-  weights: []
+  radius: 1
