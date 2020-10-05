@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Stay In Box
   m_EditorClassIdentifier: 
   center: {x: 0, y: 0, z: 0}
-  boxLimit: {x: 10, y: 2, z: 10}
+  boxLimit: {x: 20, y: 2, z: 20}
   radius: 10

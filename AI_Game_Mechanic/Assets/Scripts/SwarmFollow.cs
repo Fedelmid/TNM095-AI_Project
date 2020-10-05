@@ -23,7 +23,7 @@ public class SwarmFollow : MonoBehaviour
     {
         if(other.tag.Equals("Player"))
         {
-            compositeBehaviour.weights[followWeightIndex] = 5f;
+            compositeBehaviour.weights[followWeightIndex] = 4f;
         }
     }
 
