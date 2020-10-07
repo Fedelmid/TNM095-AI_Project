@@ -7,11 +7,10 @@ public class StayInBoxBehaviour : FlockBehaviour
 {
     public Vector3 center;
     public Vector3 boxLimit;
-    public float radius = 15f;
+    public float radius = 15f; // how close it will pull back agents
 
     public override Vector3 CalculateMove(FlockAgent agent, List<Transform> context, Flock flock)
     {
-        //Bounds bc = boxLimit.GetComponent<BoxCollider>().bounds;
         float xSize = boxLimit.x / 2.0f;
         float ySize = boxLimit.y / 2.0f;
         float zSize = boxLimit.z / 2.0f;
@@ -19,12 +18,13 @@ public class StayInBoxBehaviour : FlockBehaviour
         Vector3 ap = center - agent.transform.position;
         bool insideBox = (ap.x < xSize && ap.x > -xSize && ap.y < ySize && ap.y > -ySize && ap.z < zSize && ap.z > -zSize) ? true : false;
 
-        Vector3 centerOffset = center - agent.transform.position;
+        Vector3 centerOffset = center - ap;
         float t = centerOffset.magnitude / radius; // not using sqr cuz to keep proportions
 
         if (insideBox)
             return Vector3.zero;
 
+        // make agent go back inside the box area
         return centerOffset * t * t;
     }
     

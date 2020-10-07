@@ -9,6 +9,7 @@ public class SafeZone : MonoBehaviour
 
     private void Start()
     {
+        // Find the index for the follow player behaviour
         for (int i = 0; i < compositeBehaviour.behaviours.Length; i++)
         {
             if (compositeBehaviour.behaviours[i].GetType() == typeof(FollowPlayerBehaviour))
@@ -19,6 +20,7 @@ public class SafeZone : MonoBehaviour
         }
     }
 
+    // Player in safe zone, stop the flock from following the player
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag.Equals("Player"))
@@ -27,6 +29,7 @@ public class SafeZone : MonoBehaviour
         }
     }
 
+    // Player in the swarm zone, swarm will follow player
     private void OnTriggerExit(Collider other)
     {
         if (other.tag.Equals("Player"))
