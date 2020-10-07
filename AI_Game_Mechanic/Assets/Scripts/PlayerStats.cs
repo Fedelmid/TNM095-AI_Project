@@ -24,7 +24,6 @@ public class PlayerStats : MonoBehaviour
             case "Attack":
                 if (!isAttacking)
                 {
-                    Debug.Log("ATTACK!");
                     StartCoroutine("AttackPlayer");
                 }
                 break;
@@ -32,7 +31,6 @@ public class PlayerStats : MonoBehaviour
             case "Speed":
                 if (!player.speedBoost)
                 {
-                    Debug.Log("SPEED!");
                     player.StartCoroutine("SpeedBoost");
                 }
                 break;
@@ -40,7 +38,6 @@ public class PlayerStats : MonoBehaviour
             case "Heal":
                 if (!isHealing)
                 {
-                    Debug.Log("HEAL!");
                     StartCoroutine("HealPlayer");
                 }
                 break;
@@ -55,7 +52,7 @@ public class PlayerStats : MonoBehaviour
         {
             isAttacking = true;
             health -= damageGain;
-            Debug.Log("Player Health is: "+health);
+            Debug.Log("ATTACK -- Player Health is: "+health);
             yield return new WaitForSeconds(damageSpeed);
             isAttacking = false;
         }
@@ -67,7 +64,7 @@ public class PlayerStats : MonoBehaviour
         {
             isHealing = true;
             health += healGain;
-            Debug.Log("Player Health is: " + health);
+            Debug.Log("HEAL -- Player Health is: " + health);
             yield return new WaitForSeconds(healSpeed);
             isHealing = false;
         }

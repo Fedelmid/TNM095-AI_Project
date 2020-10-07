@@ -41,6 +41,7 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             speedBoost = true;
             speed = 10f;
+            Debug.Log("SPEED BOOST");
             yield return new WaitForSeconds(speedBoostDuration);
             speed = 6f;
             speedBoost = false;
