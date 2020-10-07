@@ -8,6 +8,8 @@ public class Flock : MonoBehaviour
     List<FlockAgent> agents = new List<FlockAgent>(); // store number of agents
     public FlockBehaviour behaviour;
 
+    public Vector3 flockSpawnPoint;
+
     // Number of agents
     [Range(10, 500)]
     public int startingCount = 250;
@@ -46,7 +48,7 @@ public class Flock : MonoBehaviour
         {
             FlockAgent newAgent = Instantiate(
                 agentPrefab, // type of agent
-                Random.insideUnitSphere /8f * startingCount * AgentDensity, // place it somewhere inside a unit sphere
+                Random.insideUnitSphere /8f * startingCount * AgentDensity + flockSpawnPoint, // place it somewhere inside a unit sphere with the 
                 Quaternion.Euler(Vector3.left * Random.Range(0f, 360f)), // random rotation
                 transform // set parent to the empty game object Flock
                 );

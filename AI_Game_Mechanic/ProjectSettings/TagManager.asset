@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - SwarmArea
+  - Speed
+  - Attack
+  - Heal
   layers:
   - Default
   - TransparentFX

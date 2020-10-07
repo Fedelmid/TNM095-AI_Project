@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8951762576612507048}
   - component: {fileID: 8951762576612507063}
   m_Layer: 9
-  m_Name: Flock Agent 1
-  m_TagString: Untagged
+  m_Name: Flock Agent Speed boost
+  m_TagString: Speed
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,7 +124,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 034bb3639e3fd384fb609897217aabd2, type: 2}
+      objectReference: {fileID: 2100000, guid: 230a6c3f80dabb743a72f5e628b752c2, type: 2}
     - target: {fileID: -927199367670048503, guid: 0530581de0176034ebef9503dbfa2631,
         type: 3}
       propertyPath: m_Name

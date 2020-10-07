@@ -18,6 +18,9 @@ public class SwarmFollow : MonoBehaviour
                 break;
             }
         }
+
+        // set follow player behaviour weight to zero
+        compositeBehaviour.weights[followWeightIndex] = 0f;
     }
 
     // Player in the swarm zone, swarm will follow player

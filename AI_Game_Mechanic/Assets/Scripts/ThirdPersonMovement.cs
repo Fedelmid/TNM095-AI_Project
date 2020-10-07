@@ -8,6 +8,9 @@ public class ThirdPersonMovement : MonoBehaviour
     public Transform cam;
 
     public float speed = 6f;
+    [HideInInspector]
+    public bool speedBoost = false;
+    public float speedBoostDuration = 3f;
 
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
@@ -30,7 +33,17 @@ public class ThirdPersonMovement : MonoBehaviour
             Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDirection.normalized * speed * Time.deltaTime);
         }
+    }
 
-        
+    private IEnumerator SpeedBoost()
+    {
+        if(!speedBoost)
+        {
+            speedBoost = true;
+            speed = 10f;
+            yield return new WaitForSeconds(speedBoostDuration);
+            speed = 6f;
+            speedBoost = false;
+        }
     }
 }
