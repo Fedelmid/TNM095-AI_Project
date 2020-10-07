@@ -18,7 +18,7 @@ public class StayInBoxBehaviour : FlockBehaviour
         Vector3 ap = center - agent.transform.position;
         bool insideBox = (ap.x < xSize && ap.x > -xSize && ap.y < ySize && ap.y > -ySize && ap.z < zSize && ap.z > -zSize) ? true : false;
 
-        Vector3 centerOffset = center - ap;
+        Vector3 centerOffset = center - agent.transform.position;
         float t = centerOffset.magnitude / radius; // not using sqr cuz to keep proportions
 
         if (insideBox)
