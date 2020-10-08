@@ -117,5 +117,7 @@ public class CompositeBehaviorEditor : Editor // more convenient editor for floc
 
             adding = null;
         }
+
+        EditorUtility.SetDirty(current);
     }
 }
