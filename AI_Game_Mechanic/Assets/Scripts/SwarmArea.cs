@@ -5,19 +5,19 @@ using UnityEngine;
 public class SwarmArea : MonoBehaviour
 {
 
-    public StayInBoxBehaviour boxed;
+    public StayInBoxBehaviour swarmBoxArea;
     public GameObject swarmArea;
-    public GameObject swarmAreaColored;
 
     void Start()
     {
-        swarmArea.transform.localScale = boxed.boxLimit;
-        swarmArea.transform.position = boxed.center; 
+        swarmArea.transform.localScale = swarmBoxArea.boxLimit;
+        swarmArea.transform.position = swarmBoxArea.center; 
+    }
 
-        swarmAreaColored.transform.localScale = boxed.boxLimit;
-        swarmAreaColored.transform.position = new Vector3(boxed.center.x, -1.95f, boxed.center.z);
-
-
-
+    // Draw a red wire box
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = new Color(1, 0, 0, 0.5f);
+        Gizmos.DrawWireCube(swarmBoxArea.center, swarmBoxArea.boxLimit);
     }
 }
