@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SafeZone : MonoBehaviour
+public class SafeZoneType1 : MonoBehaviour
 {
     public CompositeBehaviour compositeBehaviour;
+    public PlayerStats playerStats;
     int followWeightIndex;
 
     private void Start()
@@ -26,6 +27,7 @@ public class SafeZone : MonoBehaviour
         if (other.tag.Equals("Player"))
         {
             compositeBehaviour.weights[followWeightIndex] = 0f;
+            playerStats.isInvincible = true;
         }
     }
 
@@ -35,6 +37,7 @@ public class SafeZone : MonoBehaviour
         if (other.tag.Equals("Player"))
         {
             compositeBehaviour.weights[followWeightIndex] = 4f;
+            playerStats.isInvincible = false;
         }
     }
 }

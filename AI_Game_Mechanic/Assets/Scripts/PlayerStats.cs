@@ -7,6 +7,8 @@ public class PlayerStats : MonoBehaviour
 
     public float health = 100f;
     public ThirdPersonMovement player;
+    [HideInInspector]
+    public bool isInvincible = false;
 
     public float damageSpeed = 1f;
     public float damageGain = 3f;
@@ -18,11 +20,10 @@ public class PlayerStats : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
-        switch(other.tag)
+        switch (other.tag)
         {
             case "Attack":
-                if (!isAttacking)
+                if (!isAttacking && !isInvincible)
                 {
                     StartCoroutine("AttackPlayer");
                 }
