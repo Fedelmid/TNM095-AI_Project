@@ -6,7 +6,7 @@ public class Flock : MonoBehaviour
 {
     public FlockAgent agentPrefab;
     List<FlockAgent> agents = new List<FlockAgent>(); // store number of agents
-    public FlockBehaviour behaviour;
+    public CompositeBehaviour behaviour;
 
     public Vector3 flockSpawnPoint;
 

@@ -15,6 +15,7 @@ public class AvoidanceBehaviour : FilteredFlockBehaviour
         // add all points together and average
         Vector3 avoidanceMove = Vector3.zero;
         int nAvoid = 0; // number of avoidances
+                
         List<Transform> filteredContext = (filter == null) ? context : filter.Filter(agent, context);
         foreach (Transform item in filteredContext)
         {
@@ -23,8 +24,8 @@ public class AvoidanceBehaviour : FilteredFlockBehaviour
                 nAvoid++;
                 avoidanceMove += (agent.transform.position - item.position); // move away
             }
-            
         }
+                
         if (nAvoid > 0)
             avoidanceMove /= nAvoid;
 

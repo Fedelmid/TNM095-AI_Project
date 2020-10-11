@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b238cffe8e507fc4ab4ee47c2acc8ce9, type: 3}
-  m_Name: Follow Player Behaviour 1
+  m_Name: Stay In Box Behaviour SP
   m_EditorClassIdentifier: 
   behaviours:
   - {fileID: 11400000, guid: 9c27c06659077e54c902edbb19af7a24, type: 2}
