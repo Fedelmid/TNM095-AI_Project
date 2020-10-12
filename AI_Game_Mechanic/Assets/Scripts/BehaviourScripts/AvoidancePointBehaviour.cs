@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Flock/Behaviour/Avoidance")]
-public class AvoidanceBehaviour : FilteredFlockBehaviour
+public class AvoidancePointBehaviour : FilteredFlockBehaviour
 {
     // move away from neighbours
     public override Vector3 CalculateMove(FlockAgent agent, List<Transform> context, Flock flock)
