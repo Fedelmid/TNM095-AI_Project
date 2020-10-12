@@ -1611,7 +1611,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1232430203}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &653319987
 MonoBehaviour:
@@ -1629,7 +1629,7 @@ MonoBehaviour:
     type: 3}
   behaviour: {fileID: 11400000, guid: bf0ae1a72247e7c4ea98d19d9109ea87, type: 2}
   flockSpawnPoint: {x: 20, y: 0, z: -20}
-  startingCount: 2
+  startingCount: 5
   driveFactor: 10
   maxSpeed: 5
   neighbourRadius: 1.5
@@ -2894,8 +2894,8 @@ Transform:
   - {fileID: 244226645}
   - {fileID: 2086678764}
   - {fileID: 433919810}
-  - {fileID: 1250698409}
   - {fileID: 653319986}
+  - {fileID: 1250698409}
   - {fileID: 546096634}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -2930,7 +2930,7 @@ Transform:
   m_Children:
   - {fileID: 417091969}
   m_Father: {fileID: 1232430203}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1250698410
 MonoBehaviour:

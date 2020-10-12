@@ -13,10 +13,8 @@ public class FlockPatrol : MonoBehaviour
 
     void Start()
     {
-        
+        // Set start position of flock target
         target.center = pointA.position;
-        Debug.Log("Start target "+target.center);
-        //StartCoroutine("ChangeTarget");
     }
 
     void Update()
@@ -29,7 +27,6 @@ public class FlockPatrol : MonoBehaviour
     {
         isTraveling = true;
         target.center = (target.center == pointA.position) ? pointB.position : pointA.position;
-        Debug.Log("Changed target " + target.center);
         yield return new WaitForSeconds(changeTargetAfter);
         isTraveling = false;
     }
