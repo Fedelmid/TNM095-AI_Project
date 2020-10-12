@@ -11,7 +11,7 @@ public class Flock : MonoBehaviour
     public Vector3 flockSpawnPoint;
 
     // Number of agents
-    [Range(1, 500)]
+    [Range(5, 500)]
     public int startingCount = 250;
 
     // populate agents in a circle based on the number of agents
