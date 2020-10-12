@@ -13,29 +13,14 @@ public class AvoidObstacleBehaviour : FilteredFlockBehaviour
             return Vector3.forward;
 
         // add all points together and average
-        Vector3 avoidanceMove = Vector3.zero;
-
-        //int layerMask = 1 << 8;
-        //RaycastHit hit;
-        //if(Physics.Raycast(agent.transform.position, agent.transform.TransformDirection(Vector3.forward), out hit, 2f, layerMask))
-        //{
-        //if (Vector3.SqrMagnitude(hit.point - agent.transform.position) < flock.SquareAvoidanceRadius)
-        //{
-        //nAvoid++;
-        //avoidanceMove += (agent.transform.position - hit.point); // move away
-
-        //}
-        //}
-        //Debug.DrawRay(agent.transform.position, agent.transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-
-
-        
+        Vector3 avoidanceMove = Vector3.zero;      
 
         int nAvoid = 0; // number of avoidances
 
         List<Transform> filteredContext = (filter == null) ? context : filter.Filter(agent, context);
         foreach (Transform item in filteredContext)
         {
+            // Avoid entire object
             Vector3 closestPoint = item.gameObject.GetComponent<Collider>().ClosestPoint(agent.transform.position);
             if (Vector3.SqrMagnitude(closestPoint - agent.transform.position) < flock.SquareAvoidanceRadius)
             {
