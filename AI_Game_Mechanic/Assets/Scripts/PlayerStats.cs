@@ -70,4 +70,11 @@ public class PlayerStats : MonoBehaviour
             isHealing = false;
         }
     }
+
+    private void OnGUI()
+    {
+        string boxContent = "Player HP: " + health + "\nSpeed boost: " + player.speedBoost;
+        GUI.contentColor = Color.black;
+        GUI.Label(new Rect(0, 0, 150, 50), boxContent);
+    }
 }
