@@ -6,6 +6,7 @@ public class ThirdPersonMovement : MonoBehaviour
 {
     public CharacterController controller;
     public Transform cam;
+    public Animator characterAnimator;
 
     public float speed = 6f;
     [HideInInspector]
@@ -32,6 +33,13 @@ public class ThirdPersonMovement : MonoBehaviour
 
             Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDirection.normalized * speed * Time.deltaTime);
+
+            characterAnimator.SetBool("isRunning", true);
+            characterAnimator.speed = speed/2.0f;
+        }
+        else
+        {
+            characterAnimator.SetBool("isRunning", false);
         }
     }
 
