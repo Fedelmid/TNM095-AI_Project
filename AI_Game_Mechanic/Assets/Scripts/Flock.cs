@@ -10,6 +10,9 @@ public class Flock : MonoBehaviour
 
     public Vector3 flockSpawnPoint;
 
+    [Range(30f,360f)]
+    public float agentFieldOfView = 180f;
+
     // Number of agents
     [Range(5, 500)]
     public int startingCount = 250;
@@ -53,6 +56,7 @@ public class Flock : MonoBehaviour
                 transform // set parent to the empty game object Flock
                 );
             newAgent.name = "agent " + i;
+            newAgent.fieldOfView = agentFieldOfView;
             newAgent.Initialize(this);
             agents.Add(newAgent); // add agent to list to keep track of
         }
@@ -70,6 +74,7 @@ public class Flock : MonoBehaviour
             //agent.GetComponentInChildren<Renderer>().material.SetColor("_BaseColor", Color.Lerp(Color.white, Color.red, context.Count / 100f));
 
             Vector3 move = behaviour.CalculateMove(agent, context, this);
+
             move *= driveFactor;
             if (move.sqrMagnitude > squareMaxSpeed)
             {

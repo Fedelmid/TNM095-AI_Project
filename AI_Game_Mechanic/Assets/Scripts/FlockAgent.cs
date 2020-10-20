@@ -12,6 +12,9 @@ public class FlockAgent : MonoBehaviour
     Collider agentCollider;
     public Collider AgentCollider { get { return agentCollider; } } // access collider without assigned it
 
+    [HideInInspector]
+    public float fieldOfView;
+
     // Instansiate the collider
     void Start()
     {
@@ -25,7 +28,7 @@ public class FlockAgent : MonoBehaviour
 
     // Move the agent according to a certain velocity
     public void Move(Vector3 velocity)
-    {
+    {           
         if(!(float.IsNaN(velocity.x) || float.IsNaN(velocity.y) || float.IsNaN(velocity.z)))
         {
             transform.forward = velocity;
