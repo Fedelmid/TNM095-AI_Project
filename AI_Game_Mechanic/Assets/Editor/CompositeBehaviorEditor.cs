@@ -98,8 +98,15 @@ public class CompositeBehaviorEditor : Editor // more convenient editor for floc
 
         adding = (FlockBehaviour)EditorGUILayout.ObjectField(adding, typeof(FlockBehaviour), false);
 
-        if (adding != null && (current.behaviours != null || current.behaviours.Length == 0))
+        //if (adding != null && (current.behaviours != null || current.behaviours.Length == 0))
+        if(GUILayout.Button("Add"))
         {
+            if (current.behaviours == null)
+            {
+                current.behaviours = new FlockBehaviour[0];
+                current.weights = new float[0];
+            }   
+
             // add this item to the array
             var oldBehaviours = current.behaviours;
             current.behaviours = new FlockBehaviour[oldBehaviours.Length + 1];
